@@ -16,10 +16,10 @@ On a Pixel 6, in release mode, the query changes yield the following results:
 |  Fetch Albums |  ~16ms |  ~4ms |
 |  Fetch Tracks | ~240ms  |  ~35ms |
 
-**Mapped** queries also have the following benefits:
+Mapped queries also have the following benefits:
 
- * Less Memory Churn: By avoiding reflection, less objects are created and the garbage collector less likely to be triggered.
- * Less CPU pressure: Reflection requires more "work" to figure out the property types and then do the property mapping.
+ * **Less Memory Churn**: By avoiding reflection, less objects are created and the garbage collector less likely to be triggered.
+ * **Less CPU pressure**: Reflection requires more "work" to figure out the property types and then do the property mapping.
 
 This approach has the following drawbacks:
 
