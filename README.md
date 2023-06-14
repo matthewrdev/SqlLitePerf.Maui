@@ -1,7 +1,7 @@
 # Write Blazing Fast SQL in MAUI
 Gain up to a 300-500% data read improvement in MAUI apps that use [sqlite-net](https://github.com/praeclarum/sqlite-net).
 
-This is achieved through by-passing the use of reflection to map an objects properties to columns
+This is achieved through by-passing the use of reflection to map a tables columns to an objects properties.
 
 The source code for this can be found at:
 
@@ -24,13 +24,13 @@ On a Pixel 6, in release mode, the query changes yield the following results:
 This approach has the following drawbacks:
 
  * Data retrieval code may become brittle and inflexible. If you add a new column/property, you must update the associated mapper.
- * Requires deterministic order of column retrieval.
+ * Requires deterministic order of column retrieval; the mapping code is tightly coupled to the order that columns are retrieved.
 
 This approach is **RECOMMENDED** if:
 
- * Your ORM models are "well-baked" and no longer change too often.
- * You have identified that your app requires optimisation.
- * You are willing to accept some technical debt in order to achieve a significant performance jump.
+ * Your ORM models are "well-baked" and rarely change.
+ * You have identified your app requires optimisation.
+ * You are willing to accept some technical debt to achieve a significant performance jump.
  * You have unit tests in place to prevent regressions that this code may introduce.
 
 This approach is **NOT RECOMMENDED** if:
@@ -43,7 +43,7 @@ This approach is **NOT RECOMMENDED** if:
 
 ## Example
 
-We can use the `SqlHelper.ExecuteCancellableQuery` and provide a `Mapper` function:
+We can use `SqlHelper.ExecuteCancellableQuery` and provide a `Mapper` function:
 
 ```
 public List<Album> GetAlbums()
