@@ -73,9 +73,10 @@
 	  <Folder Include="Models\" />
 	  <Folder Include="Helpers\" />
 	</ItemGroup>
-	<ItemGroup>
+
+<!--	<ItemGroup>
 	  <ProjectReference Include="SqlUsage.SourceGenerators\SqlUsage.SourceGenerators.csproj" 
                       OutputItemType="Analyzer"
                       ReferenceOutputAssembly="false" />
-	</ItemGroup>
+	</ItemGroup>-->
 </Project>
