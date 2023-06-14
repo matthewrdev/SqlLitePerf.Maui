@@ -10,19 +10,13 @@ The source code for this can be found at:
 
 On a Pixel 6, in release mode, the query changes yield the following results:
 
-**ORM Mapped Queries**
+|  Query | ORM Mapped Queries  |  Manually Mapped Queries |
+|---|---|---|
+|  Fetch Artists | ~10ms  | ~3ms  |
+|  Fetch Albums |  ~16ms |  ~4ms |
+|  Fetch Tracks | ~240ms  |  ~35ms |
 
- * Fetch Artists: ~10ms
- * Fetch Albums: ~16ms
- * Fetch Tracks: ~240ms
-
-**Manually Mapped Queries**
-
- * Fetch Artists: ~3ms
- * Fetch Albums: ~4ms
- * Fetch Tracks: ~35ms
-
-It's important to note the **Mapped** queries also have the following benefits:
+**Mapped** queries also have the following benefits:
 
  * Less Memory Churn: By avoiding reflection, less objects are created and the garbage collector less likely to be triggered.
  * Less CPU pressure: Reflection requires more "work" to figure out the property types and then do the property mapping.
