@@ -1,5 +1,5 @@
 # Write Blazing Fast SQL in MAUI
-Gain up to a 300-500% data read improvement in MAUI apps that use [sqlite-net](https://github.com/praeclarum/sqlite-net).
+Improve database reads by 300-500% in MAUI apps that use [sqlite-net](https://github.com/praeclarum/sqlite-net).
 
 This is achieved through by-passing the use of reflection to map a tables columns to an objects properties.
 
