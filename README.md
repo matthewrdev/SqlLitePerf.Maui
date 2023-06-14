@@ -1,7 +1,7 @@
 # Write Blazing Fast SQL in MAUI
 Gain up to a 300-500% data read improvement in MAUI apps that use [sqlite-net](https://github.com/praeclarum/sqlite-net).
 
-This is achieved by bye-passing the use of reflection to map an objects properties to columns
+This is achieved through by-passing the use of reflection to map an objects properties to columns
 
 The source code for this can be found at:
 
