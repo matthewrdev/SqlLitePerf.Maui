@@ -1,28 +1,22 @@
 # Write Blazing Fast SQL in MAUI
 Gain up to a 300-500% data read improvement in MAUI apps that use [sqlite-net](https://github.com/praeclarum/sqlite-net).
 
-This is achieved by bye-passing the use of reflection to map an objects properties to columns
+This is achieved through by-passing the use of reflection to map an objects properties to columns
 
 The source code for this can be found at:
 
- * [SqlHelper](Helpers/SqlHelper.cs).
- * [ChinookDatabase](ChinookDatabase.cs).
+ * [SqlHelper](src/SqlUsage/Helpers/SqlHelper.cs).
+ * [ChinookDatabase](src/SqlUsage/ChinookDatabase.cs).
 
 On a Pixel 6, in release mode, the query changes yield the following results:
 
-**ORM Mapped Queries**
+|  Query | ORM Mapped Queries  |  Manually Mapped Queries |
+|---|---|---|
+|  Fetch Artists | ~10ms  | ~3ms  |
+|  Fetch Albums |  ~16ms |  ~4ms |
+|  Fetch Tracks | ~240ms  |  ~35ms |
 
- * Fetch Artists: ~10ms
- * Fetch Albums: ~16ms
- * Fetch Tracks: ~240ms
-
-**Manually Mapped Queries**
-
- * Fetch Artists: ~3ms
- * Fetch Albums: ~4ms
- * Fetch Tracks: ~35ms
-
-It's important to note the **Mapped* queries also have the following benefits:
+**Mapped** queries also have the following benefits:
 
  * Less Memory Churn: By avoiding reflection, less objects are created and the garbage collector less likely to be triggered.
  * Less CPU pressure: Reflection requires more "work" to figure out the property types and then do the property mapping.
@@ -49,7 +43,7 @@ This approach is **NOT RECOMMENDED** if:
 
 ## Example
 
-We can use the `SqlHelper.ExecuteCancellableQuery` and provide a `Mapper` function to use this:
+We can use the `SqlHelper.ExecuteCancellableQuery` and provide a `Mapper` function:
 
 ```
 public List<Album> GetAlbums()
