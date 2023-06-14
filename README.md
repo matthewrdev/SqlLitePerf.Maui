@@ -18,14 +18,14 @@ On a Pixel 6, in release mode, the query changes yield the following results:
 
 **Manually Mapped Queries**
 
- * Fetch Artists: ~2.8ms
- * Fetch Albums: ~3.9ms
+ * Fetch Artists: ~3ms
+ * Fetch Albums: ~4ms
  * Fetch Tracks: ~35ms
 
 It's important to note the **Mapped* queries also have the following benefits:
 
- * Less Memory Churn: By avoiding reflection, less objects are created and the .NET garbage collector is triggered far less during large read operations.
- * Less CPU pressue: Reflection requires more "work" to figure out the property types and then do the property mapping
+ * Less Memory Churn: By avoiding reflection, less objects are created and the garbage collector less likely to be triggered.
+ * Less CPU pressure: Reflection requires more "work" to figure out the property types and then do the property mapping.
 
 This approach has the following drawbacks:
 
@@ -49,9 +49,7 @@ This approach is **NOT RECOMMENDED** if:
 
 ## Example
 
-Directly mapping objects instead of using the ORM reflection layer is ~500% faster.
-
-Example:
+We can use the `SqlHelper.ExecuteCancellableQuery` and provide a `Mapper` function to use this:
 
 ```
 public List<Album> GetAlbums()
