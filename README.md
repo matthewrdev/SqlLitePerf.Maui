@@ -53,13 +53,13 @@ public List<Album> GetAlbums()
     return SqlHelper.ExecuteCancellableQuery<Album>(connection,
                                                     query,
                                                     emptyParameters,
-                                                    MapAlbum, // This function accepts a sqlite3_stmt statment and does manaul mapping 
+                                                    MapAlbum, // This function accepts a sqlite3_stmt statment and does manual mapping.
                                                     CancellationToken.None);
 }
 
 private Album MapAlbum(sqlite3_stmt statement)
 {
-    // Use the appropriate sqlite read to specifical retrieve each column and then directly map via `new Album`.
+    // Use the appropriate sqlite read to specifically retrieve each column and then directly map via `new Album`.
     var albumId = SQLite3.ColumnInt(statement, 0);
     var title = SQLite3.ColumnString(statement, 1);
     var artistId = SQLite3.ColumnInt(statement, 2);
