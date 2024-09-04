@@ -30,7 +30,7 @@ This approach is **RECOMMENDED** if:
 
  * Your ORM models are "well-baked" and rarely change.
  * You have identified your app requires optimisation.
- * You are willing to accept some technical debt to achieve a significant performance jump.
+ * You are willing to accept increased code complexity to achieve a significant performance jump in your database access.
  * You have unit tests in place to prevent regressions that this code may introduce.
 
 This approach is **NOT RECOMMENDED** if:
